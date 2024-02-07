@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenant QR Input</title>
+</head>
+<body>
+    <h1>Tenant QR Input</h1>
+    
+    <!-- Form for inputting visitor's name -->
+    <form action="{{ url_for('generate_qr_code') }}" method="POST">
+        <label for="visitor_name">Visitor's Name:</label>
+        <input type="text" id="visitor_name" name="visitor_name" required>
+        <button type="submit">Generate QR Code</button>
+    </form>
+
+    <!-- Button to go back to the Tenant page -->
+    <a href="{{ url_for('tenant_page') }}">Back to Tenant Page</a>
+</body>
+</html>

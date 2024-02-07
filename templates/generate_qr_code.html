@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate QR Code</title>
+</head>
+<body>
+    <h1>QR Code Generated Successfully!</h1>
+    <!-- Display the generated QR code here -->
+    <img src="{{ qr_code }}" alt="QR Code">
+    <br>
+    <a href="{{ url_for('view_qr_code') }}">View QR Code</a>
+</body>
+</html>
