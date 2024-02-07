@@ -44,6 +44,10 @@
         {% else %}
             <p>No QR code generated yet.</p>
         {% endif %}
+
+        <form action="{{ url_for('logout') }}" method="post">
+          <button type="submit" class="btn btn-danger">Logout</button>
+      </form>
 </div>
 </body>
 </html>
