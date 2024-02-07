@@ -305,7 +305,11 @@ def get_qr_code_url(visitor_name):
         # Visitor with the given name does not exist
         return None
 
-
+@app.route('/logout', methods=['POST'])
+def logout():
+    session.clear()  # Clear the session data
+    flash('You have been logged out.', 'success')
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
