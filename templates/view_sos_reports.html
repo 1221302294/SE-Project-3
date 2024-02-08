@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View SOS Reports</title>
+    <style>
+        .resolved-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th:last-child, td:last-child {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>SOS Reports</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Place</th>
+                <th>Level</th>
+                <th>Block</th>
+                <th>Additional Info</th>
+                <th>Timestamp</th>
+                <th>Action</th> <!-- New column for the "SOS Resolved" button -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for sos_report in sos_reports %}
+            <tr>
+                <td>{{ sos_report.place }}</td>
+                <td>{{ sos_report.level }}</td>
+                <td>{{ sos_report.block }}</td>
+                <td>{{ sos_report.additional_info }}</td>
+                <td>{{ sos_report.timestamp }}</td>
+                <td style="text-align: center;">
+                    <form action="{{ url_for('resolve_sos', sos_id=sos_report.id) }}" method="post">
+                        <button class="resolved-button" type="submit">SOS Resolved</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

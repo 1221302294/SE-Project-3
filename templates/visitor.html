@@ -16,13 +16,16 @@
               <a class="nav-link" href="#" style="color: white;">Home</a> <!-- Set text color to white -->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Find My Parking</a> <!-- Set text color to white -->
+              <a class="nav-link" href="{{ url_for('find_parking') }}" style="color: white;">Find My Parking</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">SOS</a> <!-- Set text color to white -->
+              <a class="nav-link" href="{{ url_for('submit_sos') }}" style="color: white;">SOS</a>
             </li>
           </ul>
         </div>
+        <form class="form-inline my-2 my-lg-0 mr-auto" action="{{ url_for('logout') }}" method="post"> <!-- Changed ml-auto to mr-auto -->
+          <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
     </nav>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -30,13 +33,13 @@
     
 
     <div class="container mt-4">
-    <h1>Welcome Visitor</h1>
-    <div>
-      <h3>User Information:</h3>
-      <p><strong>Name:</strong> {{ user.name }}</p>
-      <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
-      <p><strong>IC Number:</strong> {{ user.ic_number }}</p>
-  </div>
+        <h1>Welcome Visitor</h1>
+        <div>
+            <h3>User Information:</h3>
+            <p><strong>Name:</strong> {{ user.name }}</p>
+            <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
+            <p><strong>IC Number:</strong> {{ user.ic_number }}</p>
+        </div>
 
         {% if qr_code_url %}
             <h3>QR Code:</h3>
@@ -44,10 +47,6 @@
         {% else %}
             <p>No QR code generated yet.</p>
         {% endif %}
-
-        <form action="{{ url_for('logout') }}" method="post">
-          <button type="submit" class="btn btn-danger">Logout</button>
-      </form>
-</div>
+    </div>
 </body>
 </html>

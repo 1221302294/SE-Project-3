@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find My Parking</title>
+</head>
+<body>
+    <h1>Find My Parking</h1>
+    <form action="{{ url_for('reserve_parking') }}" method="POST">
+        <label for="parking_slot">Enter Parking Slot:</label>
+        <input type="text" id="parking_slot" name="parking_slot" required>
+        <button type="submit">Reserve Parking</button>
+    </form>
+
+    <a href="{{ url_for('visitor_page') }}">Back</a>
+</body>
+</html>

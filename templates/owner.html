@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1B4636; color: white;"> <!-- Set background color to #1B4636 and text color to white -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1B4636; color: white;"> <!-- Set background color to #211B46 and text color to white -->
     <a class="navbar-brand" href="#" style="color: white;">Owner</a> <!-- Set text color to white -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,35 +16,48 @@
           <a class="nav-link" href="#" style="color: white;">Home <span class="sr-only">(current)</span></a> <!-- Set text color to white -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" style="color: white;">Announcement</a> <!-- Set text color to white -->
+          <a class="nav-link" href="{{ url_for('view_announcements_for_user') }}" style="color: white;">Announcement</a> <!-- Set text color to white -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" style="color: white;">Report</a> <!-- Set text color to white -->
+          <a class="nav-link" href="#" style="color: white;" onclick="showReportForm()">Report</a> <!-- Set text color to white and call the JavaScript function onclick -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" style="color: white;">SOS</a> <!-- Set text color to white -->
+          <a class="nav-link" href="{{ url_for('submit_sos') }}" style="color: white;">SOS</a>
         </li>
       </ul>
     </div>
+    <form class="form-inline my-2 my-lg-0 ml-auto" action="{{ url_for('logout') }}" method="post">
+      <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
   </nav>
     
     <div class="container mt-4">
-      <h1>Welcome Owner</h1>
-      <div class="row">
-            <div class="container mt-4">
-              <h2>User Information</h2>
-              <p><strong>Name:</strong> {{ user.name }}</p>
-              <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
-              <p><strong>Email:</strong> {{ user.email }}</p>
-              <p><strong>IC Number:</strong> {{ user.ic_number }}</p>
-          </div>
-      </div>
-  </div>
+        <h1>Welcome Owner</h1>
+        <div>
+          <p><strong>Name:</strong> {{ user.name }}</p>
+          <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>IC Number:</strong> {{ user.ic_number }}</p>
+        </div>
+    </div>
 
-    <form action="{{ url_for('logout') }}" method="post">
-      <button type="submit" class="btn btn-danger">Logout</button>
-  </form>
-    
+    <!-- Incident report form (initially hidden) -->
+    <div class="container mt-4" id="incident-report-form" style="display: none;">
+        <h2>Submit Incident Report</h2>
+        <form action="{{ url_for('submit_incident_report') }}" method="post">
+            <div class="form-group">
+                <label for="incident_description">Incident Description:</label>
+                <textarea class="form-control" id="incident_description" name="incident_description" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Report</button>
+        </form>
+    </div>
+
+    <script>
+        function showReportForm() {
+            document.getElementById('incident-report-form').style.display = 'block';
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 

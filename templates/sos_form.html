@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit SOS</title>
+</head>
+<body>
+    <h1>Submit SOS</h1>
+    <form action="{{ url_for('submit_sos') }}" method="post">
+        <label for="place">Place:</label>
+        <input type="text" id="place" name="place" required><br><br>
+        
+        <label for="level">Level:</label>
+        <input type="text" id="level" name="level" required><br><br>
+        
+        <label for="block">Block:</label>
+        <input type="text" id="block" name="block" required><br><br>
+        
+        <label for="additional_info">Additional Info:</label><br>
+        <textarea id="additional_info" name="additional_info" rows="4" cols="50" required></textarea><br><br>
+        
+        <button type="submit">Submit SOS</button>
+    </form>
+</body>
+</html>
