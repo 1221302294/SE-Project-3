@@ -4,13 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask Website</title>
+
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename=background_image) }}");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-attachment: fixed;
+        }
+        .text-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            width: 300px;
+
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            margin: 10px auto;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button-signup {
+            background-color: #f44336;
+        }
+        .button-login {
+            background-color: #008CBA;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello!</h1>
-    <ul>
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('login') }}">Login Page</a></li>
-        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+    <div class="text-box">
+        <h1>WELCOME!</h1>
+        <a href="/signup" class="button button-signup">SIGN UP</a>
+        <a href="{{ url_for('login_board') }}" class="button button-login">LOG IN</a>
+        </div>
         <li><a href="{{ url_for('visitor_login') }}">Visitor Login Page</a></li>
     </ul>
 </body>
