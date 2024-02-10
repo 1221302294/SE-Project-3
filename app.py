@@ -70,7 +70,7 @@ class SOSReport(db.Model):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', background_image='background.jpg')
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -105,6 +105,13 @@ def signup():
 
     return render_template('signup.html')
 
+@app.route('/login_board')
+def login_board():
+    return render_template('login_board.html')
+
+@app.route('/login/<role>')
+def role_login(role):
+    return render_template('login.html', role=role)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
