@@ -52,6 +52,13 @@
     text-align: center;
     margin-top: 3rem;
   }
+
+  h3 { 
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3rem;
+  }
   
   .user-info {
     background-color: #4663ac;
@@ -90,6 +97,26 @@
   
   .user-info input[type="text"]::placeholder {
     color: rgba(255, 255, 255, 0.5);
+  }
+
+  .qr-code-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 3rem auto;
+    width: 50%;
+  }
+  
+  .qr-code {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f2f2f2;
+    font-size: 1.1rem;
+    text-align: center;
   }
   
   @media screen and (max-width: 768px) {
@@ -145,8 +172,11 @@
   </div>
 
         {% if qr_code_url %}
-            <h3>QR Code:</h3>
-            <img src="{{ qr_code_url }}" alt="QR Code">
+            <h3>QR Code:</h3><br></br>
+            <div class="qr-code-container">
+              <div class="qr-code" style="word-wrap: break-word;">
+              <img src="{{ qr_code_url }}" alt="QR Code"></div>
+            </div>
         {% else %}
             <p>No QR code generated yet.</p>
         {% endif %}

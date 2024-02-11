@@ -11,5 +11,15 @@
     <p><strong>Level:</strong> {{ level }}</p>
     <p><strong>Block:</strong> {{ block }}</p>
     <p><strong>Additional Info:</strong> {{ additional_info }}</p>
+
+    <div>
+        {% if role == 'owner' %}
+        <a href="{{ url_for('owner_page') }}" class="btn btn-primary">Back</a>
+    {% elif role == 'tenant' %}
+        <a href="{{ url_for('tenant_page') }}" class="btn btn-primary">Back</a>
+    {% else %}
+        <a href="{{ url_for('visitor_page') }}" class="btn btn-primary">Back</a>
+    {% endif %}  
+    </div>
 </body>
 </html>

@@ -185,9 +185,9 @@ def tenant_page():
 
 @app.route('/visitor')
 def visitor_page():
-    if 'user_id' in session:
-        user_id = session['user_id']
-        visitor = Visitor.query.get(user_id)
+    if 'visitor_id' in session:
+        visitor_id = session['visitor_id']
+        visitor = Visitor.query.get(visitor_id)
         if visitor:
             # Retrieve the QR code URL associated with the visitor from the database
             qr_code_url = visitor.qr_code
@@ -247,7 +247,7 @@ def visitor_login():
             if check_password_hash(visitor.password, password):
                 # Login successful
                 # Redirect the visitor to the visitor page after successful login
-                session['user_id'] = visitor.id  # Store visitor's ID in the session
+                session['visitor_id'] = visitor.id  # Store visitor's ID in the session
                 return redirect(url_for('visitor_page'))
             else:
                 # Password does not match
