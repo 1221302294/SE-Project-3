@@ -4,15 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View QR Code</title>
+    <style>
+        .qr-code-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .qr-code-image {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+        .timing-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <h1>View QR Code</h1>
 
     {% if qr_code_url %}
-        <div>
-            <!-- Embedding the QR code image using the QR code URL -->
-            <img src="{{ qr_code_url }}" alt="QR Code">
+    <div class="qr-code-container">
+        <!-- Embedding the QR code image using the QR code URL -->
+        <img src="{{ qr_code_url }}" alt="QR Code">
+        <div class="timing-info">
+            <p>Timing In: {{ timing_in }}</p>
+            <p>Timing Out: {{ timing_out }}</p>
         </div>
+    </div>
     {% else %}
         <p>No QR code available.</p>
     {% endif %}
