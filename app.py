@@ -530,13 +530,13 @@ def verify_qr():
         visitor = Visitor.query.filter_by(name=visitor_name).first()
         if visitor and visitor.qr_code:
             # If visitor and QR code exist, redirect to a page to display the QR code
-            qr_code_url = visitor.qr_code
-            return render_template('display_qr_code.html', qr_code_url=qr_code_url, visitor_name=visitor_name)
+            return render_template('verify_qr.html', visitor_name=visitor_name, qr_code_url=visitor.qr_code)
         else:
-            # If visitor or QR code doesn't exist, display an error message
-            flash('Visitor or QR code not found.', 'error')
-            return redirect(url_for('verify_qr'))
-    return render_template('verify_qr.html')
+            error = 'Visitor or QR code not found.'
+    else:
+        error = None
+
+    return render_template('verify_qr.html', error=error)
 
 
 @app.route('/find_parking', methods=['GET'])
