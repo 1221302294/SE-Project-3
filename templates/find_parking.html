@@ -4,15 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find My Parking</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 94%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #444;
+        }
+
+        a[href="{{ url_for('visitor_page') }}"] {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #333;
+        }
+
+        a[href="{{ url_for('visitor_page') }}"]:hover {
+            background-color: #f0f0f0;
+        }
+
+    </style>
 </head>
 <body>
+    </header>
     <h1>Find My Parking</h1>
+    <a href="{{ url_for('visitor_page') }}">&#8592;</a>
+</header>
     <form action="{{ url_for('reserve_parking') }}" method="POST">
         <label for="parking_slot">Enter Parking Slot:</label>
-        <input type="text" id="parking_slot" name="parking_slot" required>
+        <input type="text" id="parking_slot" name="parking_slot" required> <br><br>
+
         <button type="submit">Reserve Parking</button>
     </form>
-
-    <a href="{{ url_for('visitor_page') }}">Back</a>
 </body>
 </html>
