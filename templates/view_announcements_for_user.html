@@ -21,5 +21,33 @@
             </ul>
         </div>
     </div>
+    {% if userRole == 'tenant' %}
+    <button id="back-button" class="btn btn-primary">Back</button>
+    {% elif userRole == 'owner' %}
+    <button id="back-button" class="btn btn-primary">Back</button>
+    {% else %}
+    <button id="back-button" class="btn btn-primary">Back</button>
+    {% endif %}
+    <script>
+        // Get the user's role from the server-side or local storage
+        const userRole = getUserRole(); // replace with the actual function to get the user role
+      
+        // Get the back button element
+        const backButton = document.getElementById('back-button')
+      
+        // Add a click event listener to the back button
+        backButton.addEventListener('click', () => {
+          if (userRole === 'tenant'){
+            // Redirect to the tenant home page
+            window.location.href = "{{ url_for('tenant_page') }}";
+          } else if (userRole === 'owner') {
+            // Redirect to the owner home page
+            window.location.href = "{{ url_for('owner_page') }}";
+          } else {
+            // Handle other roles or unknown roles
+            console.error('Unknown user role:', userRole);
+          }
+        });
+      </script>
 </body>
 </html>
