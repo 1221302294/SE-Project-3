@@ -14,6 +14,40 @@
             background-color: #f0f0f0;
         }
 
+        .navbar {
+          border-radius: 0;
+          border: none;
+        }
+        
+        .navbar-brand {
+          font-weight: bold;
+          font-size: 1.25rem;
+        }
+        
+        .nav-item {
+          margin-right: 1rem;
+        }
+        
+        .nav-link {
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          transition: background-color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+          background-color: #ffbdbd;
+        }
+        
+        .btn-danger {
+          border-radius: 5px;
+          transition: background-color 0.2s ease;
+        }
+        
+        .btn-danger:hover {
+          background-color: #e73038;
+          border-color: #e73038;
+        }
+
         h1 {
             background-color: #333;
             color: #fff;
@@ -78,32 +112,33 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #37669c; color: white;"> <!-- Set background color to #85A8D1 and text color to white -->
-        <a class="navbar-brand" href="#" style="color: white;">Visitor</a> <!-- Set text color to white -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: white;">Home</a> <!-- Set text color to white -->
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('find_parking') }}" style="color: white;">Find My Parking</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('sos_button') }}" style="color: white;">SOS</a>
-            </li>
-          </ul>
-        </div>
-        <form class="form-inline my-2 my-lg-0 mr-auto" action="{{ url_for('logout') }}" method="post"> <!-- Changed ml-auto to mr-auto -->
-          <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
-    </nav>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </header>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #37669c; color: white;"> <!-- Set background color to #85A8D1 and text color to white -->
+      <a class="navbar-brand" href="#" style="color: white;">Visitor</a> <!-- Set text color to white -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">Home</a> <!-- Set text color to white -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('find_parking') }}" style="color: white;">Find My Parking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('sos_button') }}" style="color: white;">SOS</a>
+          </li>
+        </ul>
+      </div>
+      <form class="form-inline my-2 my-lg-0 mr-auto" action="{{ url_for('logout') }}" method="post"> <!-- Changed ml-auto to mr-auto -->
+        <button type="submit" class="btn btn-danger">Logout</button>
+      </form>
+    </nav>
+    
     <h1>Find My Parking</h1>
     <a href="{{ url_for('visitor_page') }}">&#8592;</a>
 </header>
