@@ -549,7 +549,13 @@ def reserve_parking():
     # Here you can implement logic to reserve the parking slot (e.g., update database)
     return render_template('parking_reserved.html', parking_slot=parking_slot)
 
+@app.route('/sos_button')
+def sos_button():
+    return render_template('sos_button.html')
 
+@app.route('/sos_form')
+def sos_form():
+    return render_template('sos_form.html')
 
 @app.route('/submit_sos', methods=['GET', 'POST'])
 def submit_sos():
