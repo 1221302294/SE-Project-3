@@ -32,10 +32,6 @@
     <div class="qr-code-container">
         <!-- Embedding the QR code image using the QR code URL -->
         <img src="{{ qr_code_url }}" alt="QR Code">
-        <div class="timing-info">
-            <p>Timing In: {{ timing_in }}</p>
-            <p>Timing Out: {{ timing_out }}</p>
-        </div>
     </div>
     {% else %}
         <p>No QR code available.</p>
