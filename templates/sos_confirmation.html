@@ -4,14 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOS Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            background-color: #44b169;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            width : 500px;
+            margin: 20px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <h1>SOS Submitted Successfully</h1>
-    <p><strong>Place:</strong> {{ place }}</p>
-    <p><strong>Level:</strong> {{ level }}</p>
-    <p><strong>Block:</strong> {{ block }}</p>
-    <p><strong>Additional Info:</strong> {{ additional_info }}</p>
-
+    <div class="center-content">
+        <div>
+            <label><strong>Place:</strong> {{ place }}</label>
+            <label><strong>Level:</strong> {{ level }}</label>
+            <label><strong>Block:</strong> {{ block }}</label>
+            <label><strong>Additional Info:</strong> {{ additional_info }}</label>
+        </div>
+    </div>
     <div>
         {% if role == 'owner' %}
         <a href="{{ url_for('owner_page') }}" class="btn btn-primary">Back</a>

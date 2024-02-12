@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify QR Code</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+
     <style>
         .navbar {
             border-radius: 0;
@@ -41,19 +41,15 @@
             border-color: #e73038;
           }
 
-        .qr-code-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin-bottom: 20px;
+          #display-qr-code-form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border: 1px solid #ccc;
+          padding: 20px;
+          margin-bottom: 20px;
         }
-        .qr-code-image {
-            width: 200px;
-            height: 200px;
-            border: 1px solid #ccc;
-        }
+       
     </style>
 </head>
 <body>
@@ -93,11 +89,11 @@
         {% if error %}<p>{{ error }}</p>{% endif %}
         
     {% if qr_code_url %}
-    <div class="qr-code-container">
-      <h5>QR Code for : {{ visitor_name }}<h5>
+    <div id="display-qr-code-form" class="mt-4">
+      <h2>QR Code for :{{ visitor_name }}</h2>
       <img id="qr-code-image" src="{{ qr_code_url }}" alt="QR Code">
+      <button id="verify-button" class="btn btn-success mt-4">Verify</button>
     </div>
-<button id="verify-button" class="btn btn-success mt-4">Verify</button>
 
     <script> 
       function displayQRCode() { 
