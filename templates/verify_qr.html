@@ -40,8 +40,19 @@
             background-color: #e73038;
             border-color: #e73038;
           }
-          #display-qr-code-form {
-            display: none;
+
+        .qr-code-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .qr-code-image {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
@@ -82,11 +93,12 @@
         {% if error %}<p>{{ error }}</p>{% endif %}
         
     {% if qr_code_url %}
-    <div id="display-qr-code-form" class="mt-4">
-      <h2>QR Code for :{{ visitor_name }}</h2>
+    <div class="qr-code-container">
+      <h5>QR Code for : {{ visitor_name }}<h5>
       <img id="qr-code-image" src="{{ qr_code_url }}" alt="QR Code">
-      <button id="verify-button" class="btn btn-success mt-4">Verify</button>
     </div>
+<button id="verify-button" class="btn btn-success mt-4">Verify</button>
+
     <script> 
       function displayQRCode() { 
         document.getElementById('display-qr-code-form').style.display = 'block'; 
